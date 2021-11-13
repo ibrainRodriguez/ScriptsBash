@@ -1,0 +1,21 @@
+Crea un script para respaldar bases de datos de MySQL, el script recibe los siguientes parámetros de entrada:
+
+-Usuario de la base de datos
+-Base de datos a respaldar
+-Path de ruta (con nombre de archivo) donde se almacenará el respaldo
+
+Ejemplo de uso:
+./respaldarBD.sh root jugueteria /tmp/respaldo.sql
+
+*Se deben realizar las siguientes validaciones:
+-Verificar que se recibieron 3 parámetros
+-Verificar que el parámetro 3 contiene un directorio válido
+
+*Si hay errores se deben imprimir mensajes que lo indiquen (no mostrar los errores que genere MySQL)
+
+*A los respaldos siempre hay que agregarles un encabezado de la forma:
+DROP DATABASE IF EXISTS $bd;
+create database $bd;
+use $bd;
+
+[[ -d $(dirname /tmp/hola) ]] && echo "OK"

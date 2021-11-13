@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+set clave [lindex $argv 0]
+
+set timeout -1
+spawn /home/ibrain/scrips/ejecutaRemoto.sh
+match_max 100000
+expect "password"
+send -- "$clave\r"
+expect eof
